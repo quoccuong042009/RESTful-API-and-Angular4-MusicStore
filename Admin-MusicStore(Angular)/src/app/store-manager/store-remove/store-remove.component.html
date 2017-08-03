@@ -1,0 +1,11 @@
+<h2>Delete Confirmation</h2>
+	<form (ngSubmit)="onDelete()">
+  <p>Are you sure you want to delete album titled <strong>{{ title }}</strong> ?</p>
+  <div>
+     <input type="submit" value="Delete" /> |
+     <a routerLink="/storeManager" routerLinkActive="active">Back To List</a>
+  </div>
+  </form>
+<div id="footer">
+  built with <a href="http://spring.io/">Spring Boot</a>
+</div>

@@ -1,0 +1,62 @@
+<h2>Edit</h2>
+
+<form  (ngSubmit)="onUpdate(updateForm)" #updateForm = "ngForm">
+  <fieldset>
+      <legend>Album</legend>
+
+      <div class="editor-label">Genre</div>
+      <div class="editor-field">
+          <select class="form-control" ngModel= {{selectedGenreId}} name = "genreId">
+            <option *ngFor="let genre of genres" value= {{genre.genreId}}>{{ genre.genreName }}</option>
+          </select>
+      </div>
+
+      <div class="editor-label">Artist</div>
+      <div class="editor-field">
+          <select class="form-control" id="artist" ngModel= {{selectedArtistId}} name = "artistId">
+            <option *ngFor="let artist of artists" value= {{artist.artistId}}>{{artist.artistName}}</option>
+          </select>
+      </div>
+
+      <div class="editor-label">Title</div>
+      <div class="editor-field">
+          <input type="text" class="form-control" [(ngModel)]="selectedTitle" id = "title" name = "title"
+          required minlength="4" maxlength="50"
+          #title="ngModel"
+          placeholder="Enter Title">
+
+          <span *ngIf="title.errors && (title.dirty) "
+                       class="alert alert-danger">
+                      <span [hidden]="!title.errors.required">
+                        Name is required
+                      </span>
+                      <span [hidden]="!title.errors.minlength">
+                        Name must be at least 4 characters long.
+                      </span>
+                      <span [hidden]="!title.errors.maxlength">
+                        Name cannot be more than 24 characters long.
+                      </span>
+          </span>
+      </div>
+
+      <div class="editor-label">Price</div>
+      <div class="editor-field">
+          <input type="text" class="form-control" ngModel id = "price" name = "price"
+          [(ngModel)]="selectedPrice"
+          placeholder="Enter Amount"
+          OnlyNumber="true" DecimalPlaces="2" minValue="1.00" maxValue="999999999.00">
+      </div>
+
+      <p>
+          <input type="submit" value = "Save" [disabled]="!updateForm.form.valid">
+      </p>
+  </fieldset>
+</form>
+
+<div>
+  <a routerLink="/storeManager" routerLinkActive="active">Back To List</a>
+</div>
+
+<div id="footer">
+  built with <a href="http://spring.io/">Spring Boot</a>
+</div>

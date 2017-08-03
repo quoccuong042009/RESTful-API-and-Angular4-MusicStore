@@ -1,0 +1,38 @@
+<table>
+  <tr>
+    <th>Genre</th>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+
+  <tr *ngFor="let album of albums">
+    <td> {{ album.genre.genreName }} </td>
+    <td> {{ album.artist.artistName }} </td>
+    <td> {{ album.title }} </td>
+    <td> {{ album.price }} </td>
+    <td>
+      <a [routerLink]="['/edit', album.albumId
+      , album.genre.genreId
+      , album.genre.genreName
+      , album.artist.artistId
+      , album.artist.artistName
+      , album.title
+      , album.price]" routerLinkActive="active">Edit</a>|
+      <a [routerLink]="['/details', album.albumId
+      , album.genre.genreId
+      , album.genre.genreName
+      , album.artist.artistId
+      , album.artist.artistName
+      , album.title
+      , album.price]" routerLinkActive="active">Details</a>|
+      <a [routerLink]="['/delete', album.albumId, album.title]" routerLinkActive="active">Delete</a>
+    </td>
+  </tr>
+
+</table>
+
+<div id="footer">
+  built with <a href="http://spring.io/">Spring Boot</a>
+</div>

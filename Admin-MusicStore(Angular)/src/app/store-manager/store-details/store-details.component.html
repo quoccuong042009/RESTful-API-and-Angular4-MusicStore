@@ -1,0 +1,26 @@
+<h2>Details</h2>
+
+<form>
+  <fieldset>
+      <legend>Album</legend>
+      <h3>Genre : {{ genreName }}</h3>
+      <h3>Artist : {{ artistName }}</h3>
+      <h3>Title : {{ title}}</h3>
+      <h3>price : {{ price }}</h3>
+  </fieldset>
+</form>
+
+<div>
+  <a [routerLink]="['/edit', albumId
+  , genreId
+  , genreName
+  , artistId
+  , artistName
+  , title
+  , price]" routerLinkActive="active">Edit</a> |
+    <a routerLink="/storeManager" routerLinkActive="active">Back To List</a>
+</div>
+
+<div id="footer">
+  built with <a href="http://spring.io/">Spring Boot</a>
+</div>
